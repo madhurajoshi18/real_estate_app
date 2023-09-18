@@ -43,7 +43,7 @@ class ListingsWidget extends StatelessWidget {
                         letterSpacing: 0.54,
                       ),
                     ),
-                    SizedBox(width: 140),
+                    SizedBox(width: 180),
                     Container(
                       width: 40,
                       height: 40,
@@ -60,20 +60,30 @@ class ListingsWidget extends StatelessWidget {
                     ),
                     SizedBox(width: 10),
                     Container(
-                      width: 25,
-                      height: 25,
+                      width: 30,
+                      height: 30,
                       decoration: BoxDecoration(
                         color: Color(0xFF242B5C),
                         shape: BoxShape.circle,
                       ),
-                      child: IconButton(
-                        onPressed: () {
-                          Get.to(() => FormDetail());
-                        },
-                        icon: Icon(
-                          Icons.add,
-                          size: 20,
-                          color: Colors.white,
+                      child: Container(
+                        width: 20,
+                        height: 20,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color(0xFF242B5C),
+                        ),
+                        child: Center(
+                          child: IconButton(
+                            onPressed: () {
+                              Get.to(() => FormDetail());
+                            },
+                            icon: Icon(
+                              Icons.add,
+                              size: 15,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
                     ),

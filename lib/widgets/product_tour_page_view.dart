@@ -81,7 +81,9 @@ class ProductTourPageView extends StatelessWidget {
                       ),
                       SizedBox(width: 10),
                       ElevatedButton(
-                        onPressed: _productTourController.next,
+                        onPressed: () {
+                          Get.to(() => Option());
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFF8BC83F),
                           shape: RoundedRectangleBorder(

@@ -59,7 +59,7 @@ class Photos extends StatelessWidget {
                   color: Color(0xFF234F68),
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Get.to(() => ExtraInformation());
                 },
                 iconSize: 20,
               ),

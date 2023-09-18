@@ -59,7 +59,7 @@ class Location extends StatelessWidget {
                   color: Color(0xFF234F68),
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Get.to(() => Photos());
                 },
                 iconSize: 20,
               ),

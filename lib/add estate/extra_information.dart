@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:real_estate_app/add%20estate/extra_information_success.dart';
 
 class ExtraInformation extends StatelessWidget {
@@ -50,30 +51,6 @@ class ExtraInformation extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        actions: [
-          Container(
-            width: 40,
-            height: 40,
-            decoration: ShapeDecoration(
-              color: Color(0xFFF5F4F7),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25),
-              ),
-            ),
-            child: Center(
-              child: IconButton(
-                icon: Icon(
-                  Icons.arrow_forward_ios,
-                  color: Color(0xFF234F68),
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                iconSize: 20,
-              ),
-            ),
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(
