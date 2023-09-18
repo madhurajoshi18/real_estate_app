@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:real_estate_app/add%20estate/extra_information_success.dart';
 
 class ExtraInformation extends StatelessWidget {
