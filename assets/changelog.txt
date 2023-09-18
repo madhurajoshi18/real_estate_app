@@ -1,0 +1,19 @@
+## Version
+
+# Changelog
+
+### Added
+
+- New feature: Onboarding buttons now have fixed positions.
+- Improved user experience on payment pages by converting containers into text fields.
+- Added a grid view on the options page for better navigation.
+- Home page enhancements.
+- Profile page updates, including changes in transaction and listing pages.
+- Padding adjustments on the preferable page.
+- Bottom sheets have been updated with a refreshed design.
+- Navigation-related issues have been resolved.
+- Enhancements to the "Favorites" page.
+- Revamped the "Detail" pages with better layouts and more information.
+
+
+
