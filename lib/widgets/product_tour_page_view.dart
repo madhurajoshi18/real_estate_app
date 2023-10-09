@@ -10,105 +10,108 @@ class ProductTourPageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Stack(
-        children: [
-          Column(
-            children: [
-              SizedBox(height: MediaQuery.of(context).padding.top + 20),
-              TourHeaderButtons(controller: _productTourController),
-              Expanded(
-                child: PageView.builder(
-                  controller: _pageController,
-                  itemCount: _productTourController.tourPages.length,
-                  onPageChanged: (index) {
-                    _productTourController.currentPage = index;
-                    if (index == _productTourController.tourPages.length - 1) {
-                      Future.delayed(Duration(seconds: 5), () {
-                        Get.to(() => Option());
-                      });
-                    }
-                  },
-                  itemBuilder: (context, index) {
-                    return ProductTour(
-                      controller: _productTourController,
-                      pageIndex: index,
-                    );
-                  },
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        body: Stack(
+          children: [
+            Column(
+              children: [
+                SizedBox(height: MediaQuery.of(context).padding.top + 20),
+                TourHeaderButtons(controller: _productTourController),
+                Expanded(
+                  child: PageView.builder(
+                    controller: _pageController,
+                    itemCount: _productTourController.tourPages.length,
+                    onPageChanged: (index) {
+                      _productTourController.currentPage = index;
+                      if (index ==
+                          _productTourController.tourPages.length - 1) {
+                        Future.delayed(Duration(seconds: 5), () {
+                          Get.to(() => Option());
+                        });
+                      }
+                    },
+                    itemBuilder: (context, index) {
+                      return ProductTour(
+                        controller: _productTourController,
+                        pageIndex: index,
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 40,
+              child: Transform.translate(
+                offset: Offset(0, 20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Stack(
+                      children: [
+                        Container(
+                          width: 70,
+                          height: 3,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFDFDFDF),
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white,
+                          ),
+                          child: IconButton(
+                            onPressed: _productTourController.back,
+                            icon: Icon(
+                              Icons.arrow_back,
+                              color: Color.fromARGB(255, 18, 32, 47),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        ElevatedButton(
+                          onPressed: () {
+                            Get.to(() => Option());
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFF8BC83F),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            minimumSize: Size(233, 54),
+                          ),
+                          child: Text(
+                            'Next',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontFamily: 'Lato',
+                              fontWeight: FontWeight.w700,
+                              letterSpacing: 0.48,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 40,
-            child: Transform.translate(
-              offset: Offset(0, 20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Stack(
-                    children: [
-                      Container(
-                        width: 70,
-                        height: 3,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFDFDFDF),
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.white,
-                        ),
-                        child: IconButton(
-                          onPressed: _productTourController.back,
-                          icon: Icon(
-                            Icons.arrow_back,
-                            color: Color.fromARGB(255, 18, 32, 47),
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 10),
-                      ElevatedButton(
-                        onPressed: () {
-                          Get.to(() => Option());
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF8BC83F),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          minimumSize: Size(233, 54),
-                        ),
-                        child: Text(
-                          'Next',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: 'Lato',
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: 0.48,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

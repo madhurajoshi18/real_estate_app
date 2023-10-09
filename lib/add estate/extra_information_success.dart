@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:real_estate_app/add%20estate/extra_information_error.dart';
 
-class ExtraInformationSuccess extends StatelessWidget {
+class ExtraInformationSuccess extends StatefulWidget {
+  @override
+  State<ExtraInformationSuccess> createState() =>
+      _ExtraInformationSuccessState();
+}
+
+class _ExtraInformationSuccessState extends State<ExtraInformationSuccess> {
   void _showUserSuccessBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,

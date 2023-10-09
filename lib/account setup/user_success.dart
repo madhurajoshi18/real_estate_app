@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:real_estate_app/home/home_full.dart';
 
-class UserSuccess extends StatelessWidget {
+class UserSuccess extends StatefulWidget {
+  @override
+  State<UserSuccess> createState() => _UserSuccessState();
+}
+
+class _UserSuccessState extends State<UserSuccess> {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(

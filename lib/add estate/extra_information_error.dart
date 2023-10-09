@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ExtraInformationError extends StatelessWidget {
+class ExtraInformationError extends StatefulWidget {
+  @override
+  State<ExtraInformationError> createState() => _ExtraInformationErrorState();
+}
+
+class _ExtraInformationErrorState extends State<ExtraInformationError> {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(

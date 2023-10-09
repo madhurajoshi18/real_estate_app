@@ -107,53 +107,55 @@ class ProductTour extends StatefulWidget {
 class _ProductTourState extends State<ProductTour> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(top: 50, left: 20, right: 10),
-        child: Stack(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      icon: Icon(
-                        Icons.home,
-                        color: Color(0xFF8BC83F),
-                      ),
-                      onPressed: () {},
-                    ),
-                    GestureDetector(
-                      onTap: widget.controller.skip,
-                      child: Container(
-                        width: 86,
-                        height: 38,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFDFDFDF),
-                          borderRadius: BorderRadius.circular(100),
+    return MaterialApp(
+      home: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.only(top: 50, left: 20, right: 10),
+          child: Stack(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(
+                        icon: Icon(
+                          Icons.home,
+                          color: Color(0xFF8BC83F),
                         ),
-                        child: Text(
-                          'Skip',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12,
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w400,
-                            letterSpacing: 0.36,
+                        onPressed: () {},
+                      ),
+                      GestureDetector(
+                        onTap: widget.controller.skip,
+                        child: Container(
+                          width: 86,
+                          height: 38,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFDFDFDF),
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          child: Text(
+                            'Skip',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w400,
+                              letterSpacing: 0.36,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                DynamicContentSwiper(pages: widget.pages),
-              ],
-            ),
-          ],
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  DynamicContentSwiper(pages: widget.pages),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -52,30 +52,32 @@ class _PaypalWidgetState extends State<PaypalWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.only(left: 25),
-              child: buildTextFormField(
-                controller: fullNameController,
-                labelText: 'Full Name',
-                prefixIcon: Icons.person_outline_outlined,
+    return MaterialApp(
+      home: Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(left: 25),
+                child: buildTextFormField(
+                  controller: fullNameController,
+                  labelText: 'Full Name',
+                  prefixIcon: Icons.person_outline_outlined,
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.only(left: 25),
-              child: buildTextFormField(
-                controller: emailController,
-                labelText: 'Email',
-                prefixIcon: Icons.email_outlined,
+              SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(left: 25),
+                child: buildTextFormField(
+                  controller: emailController,
+                  labelText: 'Email',
+                  prefixIcon: Icons.email_outlined,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
