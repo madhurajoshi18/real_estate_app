@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:real_estate_app/transaction/transaction_review_empty.dart';
+import 'package:real_estate_app/transaction/transaction_review_empty.dart';  
 
 class TransactionWidget extends StatelessWidget {
   @override
