@@ -183,7 +183,7 @@ class ProductTour extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.only(
-        left: 10,
+        left: 6,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -256,12 +256,12 @@ class ProductTour extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 50),
+          SizedBox(height: 20),
           Container(
-            width: 370,
-            height: 510,
+            width: 380,
+            height: 545,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(40),
               child: Image.network(
                 tourPage.imageUrl,
                 fit: BoxFit.cover,
