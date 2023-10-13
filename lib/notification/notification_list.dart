@@ -132,6 +132,8 @@ class _NotificationListState extends State<NotificationList>
                           TabBarView(controller: subTabController, children: [
                         AllContent(),
                         ReviewsContent(),
+                        AllContent(),
+                        ReviewsContent(),
                       ]),
                     ),
                   ],

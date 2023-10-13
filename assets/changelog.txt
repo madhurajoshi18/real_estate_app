@@ -14,6 +14,19 @@
 - Navigation-related issues have been resolved.
 - Enhancements to the "Favorites" page.
 - Revamped the "Detail" pages with better layouts and more information.
+- Padding adjustments on the onboarding pages.
+- Added expansion tiles to the FAQ page.
+- Added a grid view to the selected preferable page.
+- Added images and resolved padding issues on the selected preferable page.
 
 
+### Modified
+
+- Modified register pages' container and text field styles.
+- Modified padding issues on various pages.
+- Modified the payment empty page.
+- Modified notification list pages.
+- Modified add listing and edit listing pages.
+- Modified transaction review and summary pages.
+- Modified add estate pages.
 

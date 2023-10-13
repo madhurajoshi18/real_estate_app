@@ -190,6 +190,7 @@ class _PaymentEmptyState extends State<PaymentEmpty>
                   child: TabBarView(controller: tabController, children: [
                     PaypalWidget(),
                     MastercardWidget(),
+                    PaypalWidget(),
                   ]),
                 ),
               ],

@@ -260,6 +260,7 @@ class _ProfileTransactionState extends State<ProfileTransaction>
                     children: [
                       TransactionWidget(),
                       ListingsWidget(),
+                      TransactionWidget(),
                     ],
                   ),
                 ),
