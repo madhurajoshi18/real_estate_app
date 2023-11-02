@@ -8,7 +8,7 @@ void main() {
   Get.put(PageViewController());
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
+      statusBarColor: Colors.black12,
     ),
   );
   runApp(MyApp());
