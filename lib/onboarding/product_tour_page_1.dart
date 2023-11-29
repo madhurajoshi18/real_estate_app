@@ -14,7 +14,7 @@ class ProductTourPage1 extends StatelessWidget {
 
     return ProductTour(
       imageUrl: "https://picsum.photos/200/300",
-      title: "Find the best place\nto stay at a ",
+      title: "Find best place\nto stay in ",
       subtitle: "good price",
       text: "",
       description:

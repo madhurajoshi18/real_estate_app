@@ -493,7 +493,7 @@ class HomeScreen extends StatelessWidget {
                                   letterSpacing: 0.54,
                                 ),
                               ),
-                              SizedBox(width: 140),
+                              SizedBox(width: 120),
                               TextButton(
                                 onPressed: () {
                                   Get.to(() => FeatureEstates());
@@ -563,7 +563,7 @@ class HomeScreen extends StatelessWidget {
                                   letterSpacing: 0.54,
                                 ),
                               ),
-                              SizedBox(width: 150),
+                              SizedBox(width: 130),
                               TextButton(
                                 onPressed: () {
                                   Get.to(() => TopLocationsCategory());
@@ -625,7 +625,7 @@ class HomeScreen extends StatelessWidget {
                                   letterSpacing: 0.54,
                                 ),
                               ),
-                              SizedBox(width: 128),
+                              SizedBox(width: 120),
                               TextButton(
                                 onPressed: () {
                                   Get.to(() => TopAgents());

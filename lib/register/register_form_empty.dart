@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:real_estate_app/register/otp.dart';
+import 'package:form_validator/form_validator.dart';
 
 class RegisterFormEmpty extends StatefulWidget {
   @override
@@ -14,46 +15,63 @@ class _RegisterFormEmptyState extends State<RegisterFormEmpty> {
   final TextEditingController passwordController = TextEditingController();
   bool showPassword = false;
 
+  String? validateEmail(String? value) {
+    if (ValidationBuilder().email('Enter a valid email').build()(value) !=
+        null) {
+      return 'Enter a valid email';
+    }
+
+    if (value != null &&
+        (value.toLowerCase() == 'gmail.com' ||
+            value.toLowerCase() == 'gmail.in')) {
+      return 'Email domain not allowed';
+    }
+
+    return null;
+  }
+
+  String? validateEmpty(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'This field is required';
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: Container(
-          width: 40,
-          height: 40,
-          decoration: ShapeDecoration(
-            color: Color(0xFFF5F4F7),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25),
-            ),
-          ),
-          child: Center(
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_back_ios,
-                color: Color(0xFF234F68),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: Container(
+            width: 40,
+            height: 40,
+            decoration: ShapeDecoration(
+              color: Color(0xFFF5F4F7),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25),
               ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              iconSize: 20,
+            ),
+            child: Center(
+              child: IconButton(
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  color: Color(0xFF234F68),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                iconSize: 20,
+              ),
             ),
           ),
         ),
-      ),
-      body: SingleChildScrollView(
-        child: Form(
-          key: _formKey,
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.transparent,
-            ),
-            padding: const EdgeInsets.all(20.0),
-            child: Container(
-              width: 327,
-              height: 470,
+        body: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -108,90 +126,129 @@ class _RegisterFormEmptyState extends State<RegisterFormEmpty> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 20),
-                  TextFormField(
-                    controller: fullNameController,
-                    decoration: InputDecoration(
-                      labelText: 'Full Name',
-                      prefixIcon: Icon(Icons.person_outline_outlined,
-                          color: Color(0xFF242B5C)),
-                      prefixIconConstraints: BoxConstraints(minWidth: 40),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 12),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.green),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      labelStyle: TextStyle(
-                        color: Color(0xFFA1A4C1),
-                        fontSize: 12,
-                        fontFamily: 'Lato',
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 0.36,
-                      ),
-                    ),
-                  ),
                   const SizedBox(height: 15),
-                  TextFormField(
-                    controller: emailController,
-                    decoration: InputDecoration(
-                      labelText: 'Email',
-                      prefixIcon:
-                          Icon(Icons.email_outlined, color: Color(0xFF242B5C)),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.green),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      labelStyle: TextStyle(
-                        color: Color(0xFFA1A4C1),
-                        fontSize: 12,
-                        fontFamily: 'Lato',
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 0.36,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                  TextFormField(
-                    controller: passwordController,
-                    obscureText: !showPassword,
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      prefixIcon:
-                          Icon(Icons.lock_outline, color: Color(0xFF242B5C)),
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          showPassword
-                              ? Icons.visibility_off
-                              : Icons.visibility,
-                          color: Colors.black,
+                  SizedBox(
+                    height: 70,
+                    width: 360,
+                    child: TextFormField(
+                      controller: fullNameController,
+                      decoration: InputDecoration(
+                        hintText: 'Full Name',
+                        prefixIcon: Icon(
+                          Icons.person_outline_outlined,
+                          color: Color(0xFF242B5C),
                         ),
-                        onPressed: () {
-                          setState(() {
-                            showPassword = !showPassword;
-                          });
-                        },
+                        hintStyle: TextStyle(
+                          color: Color(0xFFA1A4C1),
+                          fontSize: 12,
+                          fontFamily: 'Lato',
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.36,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        contentPadding: EdgeInsets.symmetric(
+                          vertical: 16.0,
+                          horizontal: 20.0,
+                        ),
+                        fillColor: Color(0xFFF5F4F7),
+                        filled: true,
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.green),
+                      validator: ValidationBuilder()
+                          .required('Full Name is required')
+                          .build(),
+                      onChanged: (value) {
+                        _formKey.currentState!.validate();
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                  SizedBox(
+                    height: 70,
+                    width: 360,
+                    child: TextFormField(
+                      controller: emailController,
+                      decoration: InputDecoration(
+                        hintText: 'Email',
+                        prefixIcon: Icon(
+                          Icons.email_outlined,
+                          color: Color(0xFF242B5C),
+                        ),
+                        hintStyle: TextStyle(
+                          color: Color(0xFFA1A4C1),
+                          fontSize: 12,
+                          fontFamily: 'Lato',
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.36,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        contentPadding: EdgeInsets.symmetric(
+                          vertical: 16.0,
+                          horizontal: 20.0,
+                        ),
+                        fillColor: Color(0xFFF5F4F7),
+                        filled: true,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+                      validator: validateEmail,
+                      onChanged: (value) {
+                        _formKey.currentState!.validate();
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                  SizedBox(
+                    height: 70,
+                    width: 360,
+                    child: TextFormField(
+                      controller: passwordController,
+                      obscureText: !showPassword,
+                      decoration: InputDecoration(
+                        hintText: 'Password',
+                        prefixIcon: Icon(
+                          Icons.lock_outline,
+                          color: Color(0xFF242B5C),
+                        ),
+                        hintStyle: TextStyle(
+                          color: Color(0xFFA1A4C1),
+                          fontSize: 12,
+                          fontFamily: 'Lato',
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.36,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              showPassword = !showPassword;
+                            });
+                          },
+                          icon: Icon(
+                            showPassword
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            color: Color(0xFF242B5C),
+                          ),
+                        ),
+                        contentPadding: EdgeInsets.symmetric(
+                          vertical: 16.0,
+                          horizontal: 20.0,
+                        ),
+                        fillColor: Color(0xFFF5F4F7),
+                        filled: true,
                       ),
-                      labelStyle: TextStyle(
-                        color: Color(0xFFA1A4C1),
-                        fontSize: 12,
-                        fontFamily: 'Lato',
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 0.36,
-                      ),
+                      validator: ValidationBuilder()
+                          .required('Password is required')
+                          .minLength(6,
+                              'Password length should be more than 6 characters')
+                          .build(),
+                      onChanged: (value) {
+                        _formKey.currentState!.validate();
+                      },
                     ),
                   ),
                   const SizedBox(height: 20),
@@ -231,7 +288,18 @@ class _RegisterFormEmptyState extends State<RegisterFormEmpty> {
                       ),
                       child: TextButton(
                         onPressed: () {
-                          Get.to(() => OTP());
+                          bool isFieldEmpty = false;
+                          if (fullNameController.text.isEmpty ||
+                              emailController.text.isEmpty ||
+                              passwordController.text.isEmpty) {
+                            isFieldEmpty = true;
+                            setState(() {});
+                          }
+
+                          if (_formKey.currentState!.validate() &&
+                              !isFieldEmpty) {
+                            Get.to(() => OTP());
+                          }
                         },
                         child: Text(
                           'Register',

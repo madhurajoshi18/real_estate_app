@@ -6,68 +6,67 @@ import 'package:real_estate_app/utils/app_constants.dart';
 class LocationEmpty extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          leading: Container(
-            width: 40,
-            height: 40,
-            decoration: ShapeDecoration(
-              color: Color(0xFFF5F4F7),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25),
-              ),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Container(
+          width: 40,
+          height: 40,
+          decoration: ShapeDecoration(
+            color: Color(0xFFF5F4F7),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25),
             ),
-            child: Center(
-              child: IconButton(
-                icon: Icon(
-                  Icons.arrow_back_ios,
-                  color: Color(0xFF234F68),
+          ),
+          child: Center(
+            child: IconButton(
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: Color(0xFF234F68),
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              iconSize: 20,
+            ),
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: Container(
+              width: 86,
+              height: 38,
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+              decoration: ShapeDecoration(
+                color: Color(0xFFF5F4F7),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(100),
                 ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                iconSize: 20,
+              ),
+              child: Center(
+                child: Text(
+                  'skip',
+                  style: TextStyle(
+                    color: Color(0xFF393E67),
+                    fontSize: 12,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w400,
+                    height: 1.5,
+                    letterSpacing: 0.36,
+                  ),
+                ),
               ),
             ),
           ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 16.0),
-              child: Container(
-                width: 86,
-                height: 38,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                decoration: ShapeDecoration(
-                  color: Color(0xFFF5F4F7),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                ),
-                child: Center(
-                  child: Text(
-                    'skip',
-                    style: TextStyle(
-                      color: Color(0xFF393E67),
-                      fontSize: 12,
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w400,
-                      height: 1.5,
-                      letterSpacing: 0.36,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        body: SingleChildScrollView(
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
                 height: 16.0,
@@ -176,40 +175,27 @@ class LocationEmpty extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 40),
-              Center(
-                child: Container(
-                  width: 327,
-                  height: 70,
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFF5F4F7),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    labelText: 'Location Detail',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    prefixIcon: Icon(Icons.location_on),
+                    suffixIcon: IconButton(
+                      icon: Icon(Icons.arrow_forward_ios),
+                      onPressed: () {
+                        // Handle action when the arrow button is pressed
+                      },
                     ),
                   ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.location_on,
-                        color: Color(0xFF53577A),
-                      ),
-                      SizedBox(width: 20),
-                      Text(
-                        'Location detail',
-                        style: TextStyle(
-                          color: Color(0xFFA1A4C1),
-                          fontSize: 12,
-                          fontFamily: 'Raleway',
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 0.36,
-                        ),
-                      ),
-                      SizedBox(width: 150),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: Color(0xFFA1A4C1),
-                      ),
-                    ],
-                  ),
+
+                  onChanged: (value) {
+                    // Handle changes in entered location
+                  },
+                  // Add any validation or controller as required
                 ),
               ),
               SizedBox(height: 50),

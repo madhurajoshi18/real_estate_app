@@ -27,12 +27,34 @@ class _FAQState extends State<FAQ> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          leading: Container(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Container(
+          width: 40,
+          height: 40,
+          decoration: ShapeDecoration(
+            color: Color(0xFFF5F4F7),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25),
+            ),
+          ),
+          child: Center(
+            child: IconButton(
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: Color(0xFF234F68),
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              iconSize: 20,
+            ),
+          ),
+        ),
+        actions: [
+          Container(
             width: 40,
             height: 40,
             decoration: ShapeDecoration(
@@ -44,241 +66,220 @@ class _FAQState extends State<FAQ> with TickerProviderStateMixin {
             child: Center(
               child: IconButton(
                 icon: Icon(
-                  Icons.arrow_back_ios,
+                  Icons.arrow_forward_ios,
                   color: Color(0xFF234F68),
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Get.to(() => LocationEmpty());
                 },
                 iconSize: 20,
               ),
             ),
           ),
-          actions: [
-            Container(
-              width: 40,
-              height: 40,
-              decoration: ShapeDecoration(
-                color: Color(0xFFF5F4F7),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
-              ),
-              child: Center(
-                child: IconButton(
-                  icon: Icon(
-                    Icons.arrow_forward_ios,
-                    color: Color(0xFF234F68),
-                  ),
-                  onPressed: () {
-                    Get.to(() => LocationEmpty());
-                  },
-                  iconSize: 20,
-                ),
-              ),
-            ),
-          ],
-        ),
-        body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          color: Colors.transparent,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 10),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text.rich(
-                        TextSpan(
+        ],
+      ),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: 'FAQ',
+                                style: TextStyle(
+                                  color: Color(0xFF1F4C6B),
+                                  fontSize: 25,
+                                  fontFamily: 'Lato',
+                                  fontWeight: FontWeight.w800,
+                                  height: 1.4,
+                                  letterSpacing: 0.75,
+                                ),
+                              ),
+                              TextSpan(
+                                text: ' ',
+                                style: TextStyle(
+                                  color: Color(0xFF242B5C),
+                                  fontSize: 25,
+                                  fontFamily: 'Lato',
+                                  fontWeight: FontWeight.w800,
+                                  height: 1.4,
+                                  letterSpacing: 0.75,
+                                ),
+                              ),
+                              TextSpan(
+                                text: '&',
+                                style: TextStyle(
+                                  color: Color(0xFF242B5C),
+                                  fontSize: 25,
+                                  fontFamily: 'Lato',
+                                  fontWeight: FontWeight.w400,
+                                  height: 1.4,
+                                  letterSpacing: 0.75,
+                                ),
+                              ),
+                              TextSpan(
+                                text: ' ',
+                                style: TextStyle(
+                                  color: Color(0xFF242B5C),
+                                  fontSize: 25,
+                                  fontFamily: 'Lato',
+                                  fontWeight: FontWeight.w800,
+                                  height: 1.4,
+                                  letterSpacing: 0.75,
+                                ),
+                              ),
+                              TextSpan(
+                                text: 'Support',
+                                style: TextStyle(
+                                  color: Color(0xFF1f4c6b),
+                                  fontSize: 25,
+                                  fontFamily: 'Lato',
+                                  fontWeight: FontWeight.w800,
+                                  height: 1.4,
+                                  letterSpacing: 0.75,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        Text(
+                          'Find the answers to your problems using this app.',
+                          style: TextStyle(
+                            color: Color(0xFF53577A),
+                            fontSize: 12,
+                            fontFamily: 'Raleway',
+                            fontWeight: FontWeight.w400,
+                            height: 1.2,
+                            letterSpacing: 0.36,
+                          ),
+                        ),
+                        SizedBox(height: 30),
+                        Column(
                           children: [
-                            TextSpan(
-                              text: 'FAQ',
-                              style: TextStyle(
-                                color: Color(0xFF1F4C6B),
-                                fontSize: 25,
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w800,
-                                height: 1.4,
-                                letterSpacing: 0.75,
-                              ),
-                            ),
-                            TextSpan(
-                              text: ' ',
-                              style: TextStyle(
-                                color: Color(0xFF242B5C),
-                                fontSize: 25,
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w800,
-                                height: 1.4,
-                                letterSpacing: 0.75,
-                              ),
-                            ),
-                            TextSpan(
-                              text: '&',
-                              style: TextStyle(
-                                color: Color(0xFF242B5C),
-                                fontSize: 25,
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w400,
-                                height: 1.4,
-                                letterSpacing: 0.75,
-                              ),
-                            ),
-                            TextSpan(
-                              text: ' ',
-                              style: TextStyle(
-                                color: Color(0xFF242B5C),
-                                fontSize: 25,
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w800,
-                                height: 1.4,
-                                letterSpacing: 0.75,
-                              ),
-                            ),
-                            TextSpan(
-                              text: 'Support',
-                              style: TextStyle(
-                                color: Color(0xFF1f4c6b),
-                                fontSize: 25,
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w800,
-                                height: 1.4,
-                                letterSpacing: 0.75,
-                              ),
-                            ),
+                            buildIconRow(Icons.language, 'Visit Our Website'),
+                            SizedBox(height: 10),
+                            buildIconRow(Icons.email, 'Email Us'),
+                            SizedBox(height: 10),
+                            buildIconRow(Icons.description, 'Terms of Service'),
                           ],
                         ),
-                      ),
-                      SizedBox(height: 20),
-                      Text(
-                        'Find the answers to your problems using this app.',
-                        style: TextStyle(
-                          color: Color(0xFF53577A),
-                          fontSize: 12,
-                          fontFamily: 'Raleway',
-                          fontWeight: FontWeight.w400,
-                          height: 1.2,
-                          letterSpacing: 0.36,
-                        ),
-                      ),
-                      SizedBox(height: 30),
-                      Column(
-                        children: [
-                          buildIconRow(Icons.language, 'Visit Our Website'),
-                          SizedBox(height: 10),
-                          buildIconRow(Icons.email, 'Email Us'),
-                          SizedBox(height: 10),
-                          buildIconRow(Icons.description, 'Terms of Service'),
-                        ],
-                      ),
-                      SizedBox(height: 20),
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            height: 60,
-                            decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: Color(0xFFF5F4F7)),
-                            ),
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.all(8),
-                                  child: Icon(Icons.search),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 8),
-                                    child: TextField(
-                                      decoration: InputDecoration(
-                                        hintText: 'Try finding "how to"',
-                                        hintStyle: TextStyle(
-                                          color: Color(0xFFA1A4C1),
-                                          fontSize: 12,
-                                          fontFamily: 'Raleway',
-                                          fontWeight: FontWeight.w400,
-                                          letterSpacing: 0.36,
+                        SizedBox(height: 20),
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              height: 80,
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(color: Color(0xFFF5F4F7)),
+                              ),
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.all(8),
+                                    child: Icon(Icons.search),
+                                  ),
+                                  Expanded(
+                                    child: Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 8),
+                                      child: TextField(
+                                        decoration: InputDecoration(
+                                          hintText: 'Try finding "how to"',
+                                          hintStyle: TextStyle(
+                                            color: Color(0xFFA1A4C1),
+                                            fontSize: 12,
+                                            fontFamily: 'Raleway',
+                                            fontWeight: FontWeight.w400,
+                                            letterSpacing: 0.36,
+                                          ),
+                                          border: InputBorder.none,
                                         ),
-                                        border: InputBorder.none,
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          Container(
-                            height: 70,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 15, vertical: 8),
-                            decoration: ShapeDecoration(
-                              color: Color(0xFFF5F4F7),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(100),
+                                ],
                               ),
                             ),
-                            child: TabBar(
-                              controller: tabController,
-                              labelColor: Colors.black,
-                              indicator: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(25),
-                              ),
-                              tabs: [
-                                Tab(
-                                  text: 'Buyer',
+                            SizedBox(height: 20),
+                            Container(
+                              height: 70,
+                              width: double.infinity,
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 15, vertical: 8),
+                              decoration: ShapeDecoration(
+                                color: Color(0xFFF5F4F7),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(40),
                                 ),
-                                Tab(text: 'Estate Agent'),
-                              ],
+                              ),
+                              child: TabBar(
+                                controller: tabController,
+                                labelColor: Colors.black,
+                                indicator: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(25),
+                                ),
+                                tabs: [
+                                  Tab(
+                                    text: 'Buyer',
+                                  ),
+                                  Tab(text: 'Estate Agent'),
+                                ],
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 20),
-                        ],
-                      ),
-                      SizedBox(height: 20),
-                      buildExpansionTile(
-                        'Why is Rise Real Estate?',
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                        isExpanded1,
-                        () {
-                          setState(() {
-                            isExpanded1 = !isExpanded1;
-                          });
-                        },
-                      ),
-                      SizedBox(height: 20),
-                      buildExpansionTile(
-                        'Why choose to buy in Rise?',
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                        isExpanded2,
-                        () {
-                          setState(() {
-                            isExpanded2 = !isExpanded2;
-                          });
-                        },
-                      ),
-                      SizedBox(height: 20),
-                      SizedBox(
-                        height: 100,
-                      ),
-                    ],
-                  ),
+                            SizedBox(height: 20),
+                          ],
+                        ),
+                        buildExpansionTile(
+                          'Why is Rise Real Estate?',
+                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                          isExpanded1,
+                          () {
+                            setState(() {
+                              isExpanded1 = !isExpanded1;
+                            });
+                          },
+                        ),
+                        SizedBox(height: 20),
+                        buildExpansionTile(
+                          'Why choose to buy in Rise?',
+                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                          isExpanded2,
+                          () {
+                            setState(() {
+                              isExpanded2 = !isExpanded2;
+                            });
+                          },
+                        ),
+                        SizedBox(height: 20),
+                        SizedBox(
+                          height: 100,
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -286,7 +287,7 @@ class _FAQState extends State<FAQ> with TickerProviderStateMixin {
   Widget buildIconRow(IconData icon, String text) {
     return Container(
       width: double.infinity,
-      height: 50,
+      height: 70,
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(10),
@@ -294,23 +295,26 @@ class _FAQState extends State<FAQ> with TickerProviderStateMixin {
       ),
       child: Row(
         children: [
-          Container(
-            width: 30,
-            height: 30,
-            decoration: BoxDecoration(
-              color: Color(0xFF1F4C6B),
-              shape: BoxShape.circle,
+          Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: Container(
+              width: 30,
+              height: 30,
+              decoration: BoxDecoration(
+                color: Color(0xFF1F4C6B),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(icon, color: Colors.white),
             ),
-            child: Icon(icon, color: Colors.white),
           ),
           SizedBox(width: 10),
           Text(
             text,
             style: TextStyle(
               color: Color(0xFF242B5C),
-              fontSize: 12,
+              fontSize: 14,
               fontFamily: 'Lato',
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w500,
               height: 1.2,
               letterSpacing: 0.36,
             ),
@@ -324,28 +328,21 @@ class _FAQState extends State<FAQ> with TickerProviderStateMixin {
     String title,
     String content,
     bool isExpanded,
-    Function() onTap,
+    VoidCallback onTap,
   ) {
     return ExpansionTile(
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 14,
-              color: Color(0xFF242B5C),
-              fontFamily: 'Lato',
-              fontWeight: FontWeight.w700,
-              letterSpacing: 0.42,
-            ),
-          ),
-        ],
+      title: Text(
+        title,
+        style: TextStyle(
+          fontSize: 14,
+          color: Color(0xFF242B5C),
+          fontFamily: 'Lato',
+          fontWeight: FontWeight.w700,
+          letterSpacing: 0.42,
+        ),
       ),
       onExpansionChanged: (value) {
-        setState(() {
-          isExpanded = value;
-        });
+        onTap(); // Execute the provided callback to handle expansion state
       },
       children: [
         Padding(
@@ -363,6 +360,7 @@ class _FAQState extends State<FAQ> with TickerProviderStateMixin {
           ),
         ),
       ],
+      initiallyExpanded: isExpanded, // Maintain the expansion state
     );
   }
 }
