@@ -87,119 +87,114 @@ class _PaymentEmptyState extends State<PaymentEmpty>
             ),
           ],
         ),
-        body: Stack(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: 274,
-                    height: 120,
-                    clipBehavior: Clip.antiAlias,
-                    decoration: BoxDecoration(),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text.rich(
-                          TextSpan(
-                            children: [
-                              TextSpan(
-                                text: 'Add your\n',
-                                style: TextStyle(
-                                  color: Color(0xFF242B5C),
-                                  fontSize: 25,
-                                  fontFamily: 'Lato',
-                                  fontWeight: FontWeight.w500,
-                                  height: 1.4,
-                                  letterSpacing: 0.75,
-                                ),
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: 274,
+                  height: 120,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Add your\n',
+                              style: TextStyle(
+                                color: Color(0xFF242B5C),
+                                fontSize: 25,
+                                fontFamily: 'Lato',
+                                fontWeight: FontWeight.w500,
+                                height: 1.4,
+                                letterSpacing: 0.75,
                               ),
-                              TextSpan(
-                                text: 'payment method',
-                                style: TextStyle(
-                                  color: Color(0xFF1F4C6B),
-                                  fontSize: 25,
-                                  fontFamily: 'Lato',
-                                  fontWeight: FontWeight.w800,
-                                  height: 1.4,
-                                  letterSpacing: 0.75,
-                                ),
+                            ),
+                            TextSpan(
+                              text: 'payment method',
+                              style: TextStyle(
+                                color: Color(0xFF1F4C6B),
+                                fontSize: 25,
+                                fontFamily: 'Lato',
+                                fontWeight: FontWeight.w800,
+                                height: 1.4,
+                                letterSpacing: 0.75,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(height: 20),
-                        Text(
-                          'You can edit this later on your account setting.',
-                          style: TextStyle(
-                            color: Color(0xFF53577A),
-                            fontSize: 12,
-                            fontFamily: 'DM Sans',
-                            fontWeight: FontWeight.w400,
-                            height: 1.2,
-                            letterSpacing: 0.36,
-                          ),
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        'You can edit this later on your account setting.',
+                        style: TextStyle(
+                          color: Color(0xFF53577A),
+                          fontSize: 12,
+                          fontFamily: 'DM Sans',
+                          fontWeight: FontWeight.w400,
+                          height: 1.2,
+                          letterSpacing: 0.36,
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.0),
-                Center(
-                  child: Container(
-                    width: 300,
-                    height: 150,
-                    color: Colors.transparent,
-                    child: Image.asset(
-                      'assets/Credit Card.png',
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.0),
-                Container(
-                  height: 50,
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFF5F4F7),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                  ),
-                  child: TabBar(
-                    controller: tabController,
-                    unselectedLabelColor: Colors.black,
-                    labelColor: Colors.white,
-                    indicator: BoxDecoration(
-                      color: Color(0xFF242B5C),
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    tabs: [
-                      _buildTabWithIcon('Paypal', FontAwesomeIcons.paypal),
-                      _buildTabWithIcon(
-                          'Mastercard', FontAwesomeIcons.creditCard),
-                      _buildTabWithIcon('Visa', FontAwesomeIcons.ccVisa),
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 12.0),
-                Expanded(
-                  child: TabBarView(controller: tabController, children: [
-                    PaypalWidget(),
-                    MastercardWidget(),
-                    PaypalWidget(),
-                  ]),
+              ),
+              SizedBox(height: 16.0),
+              Center(
+                child: Container(
+                  width: 300,
+                  height: 150,
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    'assets/Credit Card.png',
+                    fit: BoxFit.contain,
+                  ),
                 ),
-              ],
-            ),
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: 8,
-              child: Center(
+              ),
+              SizedBox(height: 16.0),
+              Container(
+                height: 50,
+                decoration: ShapeDecoration(
+                  color: Color(0xFFF5F4F7),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                ),
+                child: TabBar(
+                  controller: tabController,
+                  unselectedLabelColor: Colors.black,
+                  labelColor: Colors.white,
+                  indicator: BoxDecoration(
+                    color: Color(0xFF242B5C),
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  tabs: [
+                    _buildTabWithIcon('Paypal', FontAwesomeIcons.paypal),
+                    _buildTabWithIcon(
+                        'Mastercard', FontAwesomeIcons.creditCard),
+                    _buildTabWithIcon('Visa', FontAwesomeIcons.ccVisa),
+                  ],
+                ),
+              ),
+              SizedBox(height: 12.0),
+              Container(
+                height: 250,
+                child: TabBarView(controller: tabController, children: [
+                  PaypalWidget(),
+                  MastercardWidget(),
+                  PaypalWidget(),
+                ]),
+              ),
+              SizedBox(height: 4),
+              Center(
                 child: Container(
                   width: 278,
                   height: 63,
@@ -229,8 +224,8 @@ class _PaymentEmptyState extends State<PaymentEmpty>
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -18,7 +18,7 @@
 - Added expansion tiles to the FAQ page.
 - Added a grid view to the selected preferable page.
 - Added images and resolved padding issues on the selected preferable page.
-
+- Added validation for login and register pages.
 
 ### Modified
 
@@ -29,4 +29,7 @@
 - Modified add listing and edit listing pages.
 - Modified transaction review and summary pages.
 - Modified add estate pages.
+- Modified the payment pages.
+- Modified the location pages.
+- Modified the search pages.
 
