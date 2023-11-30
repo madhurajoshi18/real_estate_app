@@ -20,31 +20,34 @@ class _UserEmptyState extends State<UserEmpty> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          leading: Container(
-            width: 40,
-            height: 40,
-            decoration: ShapeDecoration(
-              color: Color(0xFFF5F4F7),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25),
-              ),
-            ),
-            child: Center(
-              child: IconButton(
-                icon: Icon(
-                  Icons.arrow_back_ios,
-                  color: Color(0xFF234F68),
+          leading: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Container(
+              width: 40,
+              height: 40,
+              decoration: ShapeDecoration(
+                color: Color(0xFFF5F4F7),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25),
                 ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                iconSize: 20,
+              ),
+              child: Center(
+                child: IconButton(
+                  icon: Icon(
+                    Icons.arrow_back_ios,
+                    color: Color(0xFF234F68),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  iconSize: 20,
+                ),
               ),
             ),
           ),
           actions: [
             Padding(
-              padding: const EdgeInsets.only(right: 16.0),
+              padding: const EdgeInsets.only(right: 10),
               child: Container(
                 width: 86,
                 height: 38,

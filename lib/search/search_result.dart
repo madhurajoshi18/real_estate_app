@@ -281,7 +281,7 @@ class SearchResult extends StatelessWidget {
                                   const SizedBox(width: 5),
                                   Container(
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: 12, vertical: 6),
+                                        horizontal: 6, vertical: 6),
                                     decoration: ShapeDecoration(
                                       color: Colors.white,
                                       shape: RoundedRectangleBorder(

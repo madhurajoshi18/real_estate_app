@@ -106,7 +106,7 @@ class ListingsWidget extends StatelessWidget {
                       width: 160,
                       height: 250,
                       padding: const EdgeInsets.only(
-                          top: 8, left: 8, right: 8, bottom: 16),
+                          top: 8, left: 8, right: 4, bottom: 16),
                       decoration: BoxDecoration(
                         color: Color(0xFFF5F4F7),
                         borderRadius: BorderRadius.circular(25),
@@ -249,7 +249,7 @@ class ListingsWidget extends StatelessWidget {
                   width: 160,
                   height: 250,
                   padding: const EdgeInsets.only(
-                      top: 8, left: 8, right: 8, bottom: 16),
+                      top: 8, left: 8, right: 4, bottom: 16),
                   decoration: BoxDecoration(
                     color: Color(0xFFF5F4F7),
                     borderRadius: BorderRadius.circular(25),

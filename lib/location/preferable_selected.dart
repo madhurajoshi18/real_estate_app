@@ -159,8 +159,8 @@ class PreferableSelected extends StatelessWidget {
           ),
         ],
       ),
-      floatingActionButton: ButtonTheme(
-        minWidth: 278,
+      floatingActionButton: Container(
+        width: 278,
         height: 63,
         child: FloatingActionButton.extended(
           onPressed: () {

@@ -267,7 +267,7 @@ class _FormErrorState extends State<FormError> {
                   ),
                 ),
               ),
-              SizedBox(height: 180),
+              SizedBox(height: 120),
               Center(
                 child: Container(
                   width: MediaQuery.of(context).size.width,
@@ -275,7 +275,7 @@ class _FormErrorState extends State<FormError> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

@@ -219,10 +219,10 @@ class LocationEmpty extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
               Center(
                 child: Container(
-                  width: 250,
+                  width: 278,
                   height: 63,
                   decoration: ShapeDecoration(
                     color: Color(0xFF8BC83F),

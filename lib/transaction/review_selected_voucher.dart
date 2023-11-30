@@ -207,7 +207,7 @@ class ReviewSelectedVoucher extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
               Container(
                 width: 278,
                 height: 63,

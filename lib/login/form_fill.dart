@@ -228,25 +228,7 @@ class _FormFillState extends State<FormFill> {
               Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    bool isFieldEmpty = false;
-                    if (emailController.text.isEmpty ||
-                        passwordController.text.isEmpty) {
-                      isFieldEmpty = true;
-                      setState(() {});
-                    }
-
-                    if (_formKey.currentState!.validate() && !isFieldEmpty) {
-                      bool isFieldEmpty = false;
-                      if (emailController.text.isEmpty ||
-                          passwordController.text.isEmpty) {
-                        isFieldEmpty = true;
-                        setState(() {});
-                      }
-
-                      if (_formKey.currentState!.validate() && !isFieldEmpty) {
-                        Get.to(() => FormError());
-                      }
-                    }
+                    Get.to(() => FormError());
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFF8BC83F),
@@ -275,7 +257,7 @@ class _FormFillState extends State<FormFill> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

@@ -67,7 +67,7 @@ class TransactionSummary extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8),
                 child: Container(
                   width: 350,
                   height: 170,
@@ -233,7 +233,7 @@ class TransactionSummary extends StatelessWidget {
                 width: 327,
                 height: 170,
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                 decoration: ShapeDecoration(
                   color: Colors.white,
                   shape: RoundedRectangleBorder(
@@ -325,7 +325,6 @@ class TransactionSummary extends StatelessWidget {
                         top: 4,
                         left: 6,
                         right: 6,
-                        bottom: 4,
                       ),
                       decoration: ShapeDecoration(
                         color: Color(0xFFF5F4F7),

@@ -20,7 +20,7 @@ class NearbyEstates extends StatelessWidget {
     return Container(
       width: 170,
       height: 260,
-      padding: const EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 16),
+      padding: const EdgeInsets.only(top: 8, left: 8, right: 4, bottom: 16),
       decoration: BoxDecoration(
         color: Color(0xFFF5F4F7),
         borderRadius: BorderRadius.circular(25),

@@ -21,7 +21,7 @@ class ChooseLocation extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.only(
-                    top: constraints.maxHeight * 0.05,
+                    top: constraints.maxHeight * 0.06,
                     left: constraints.maxWidth * 0.05,
                   ),
                   child: Align(
@@ -47,7 +47,7 @@ class ChooseLocation extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: constraints.maxHeight * 0.1,
+                  top: constraints.maxHeight * 0.15,
                   left: constraints.maxWidth * 0.05,
                   right: constraints.maxWidth * 0.05,
                   child: Container(
@@ -165,7 +165,7 @@ class ChooseLocation extends StatelessWidget {
                   left: constraints.maxWidth * 0.2,
                   right: constraints.maxWidth * 0.2,
                   child: Container(
-                    width: constraints.maxWidth * 0.6,
+                    width: constraints.maxWidth * 1,
                     height: constraints.maxHeight * 0.1,
                     decoration: ShapeDecoration(
                       color: Color(0xFF8BC83F),

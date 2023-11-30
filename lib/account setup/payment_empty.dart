@@ -58,7 +58,7 @@ class _PaymentEmptyState extends State<PaymentEmpty>
           ),
           actions: [
             Padding(
-              padding: const EdgeInsets.only(right: 16.0),
+              padding: const EdgeInsets.only(right: 10),
               child: Container(
                 width: 86,
                 height: 38,

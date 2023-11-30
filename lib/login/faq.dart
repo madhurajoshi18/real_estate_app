@@ -342,7 +342,7 @@ class _FAQState extends State<FAQ> with TickerProviderStateMixin {
         ),
       ),
       onExpansionChanged: (value) {
-        onTap(); // Execute the provided callback to handle expansion state
+        onTap();
       },
       children: [
         Padding(
@@ -360,7 +360,7 @@ class _FAQState extends State<FAQ> with TickerProviderStateMixin {
           ),
         ),
       ],
-      initiallyExpanded: isExpanded, // Maintain the expansion state
+      initiallyExpanded: isExpanded,
     );
   }
 }
