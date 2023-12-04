@@ -24,25 +24,28 @@ class PreferableSelected extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Container(
-          width: 40,
-          height: 40,
-          decoration: ShapeDecoration(
-            color: Color(0xFFF5F4F7),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25),
-            ),
-          ),
-          child: Center(
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_back_ios,
-                color: Color(0xFF234F68),
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            width: 40,
+            height: 40,
+            decoration: ShapeDecoration(
+              color: Color(0xFFF5F4F7),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25),
               ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              iconSize: 20,
+            ),
+            child: Center(
+              child: IconButton(
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  color: Color(0xFF234F68),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                iconSize: 20,
+              ),
             ),
           ),
         ),
@@ -79,7 +82,7 @@ class PreferableSelected extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 16.0),
+          SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.only(left: 20),
             child: Column(
@@ -110,21 +113,10 @@ class PreferableSelected extends StatelessWidget {
                           letterSpacing: 0.75,
                         ),
                       ),
-                      TextSpan(
-                        text: ' ',
-                        style: TextStyle(
-                          color: Color(0xFF234F68),
-                          fontSize: 25,
-                          fontFamily: 'Lato',
-                          fontWeight: FontWeight.w800,
-                          height: 1.4,
-                          letterSpacing: 0.75,
-                        ),
-                      ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 Text(
                   'You can edit this later on your account setting.',
                   style: TextStyle(

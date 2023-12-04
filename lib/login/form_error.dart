@@ -46,14 +46,21 @@ class _FormErrorState extends State<FormError> {
                 onTap: () {
                   Get.to(() => FormEmpty());
                 },
-                child: Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    color: Color(0xFFF5F4F7),
-                    borderRadius: BorderRadius.circular(25),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF5F4F7),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child:
+                          Icon(Icons.arrow_back_ios, color: Color(0xFF234F68)),
+                    ),
                   ),
-                  child: Icon(Icons.arrow_back_ios, color: Color(0xFF234F68)),
                 ),
               ),
               SizedBox(height: 20),

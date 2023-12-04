@@ -16,25 +16,28 @@ class _LocationFillState extends State<LocationFill> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Container(
-          width: 40,
-          height: 40,
-          decoration: ShapeDecoration(
-            color: Color(0xFFF5F4F7),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25),
-            ),
-          ),
-          child: Center(
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_back_ios,
-                color: Color(0xFF234F68),
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            width: 40,
+            height: 40,
+            decoration: ShapeDecoration(
+              color: Color(0xFFF5F4F7),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25),
               ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              iconSize: 20,
+            ),
+            child: Center(
+              child: IconButton(
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  color: Color(0xFF234F68),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                iconSize: 20,
+              ),
             ),
           ),
         ),
@@ -184,8 +187,7 @@ class _LocationFillState extends State<LocationFill> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: TextFormField(
-                  initialValue: locationDetail +
-                      ', West Jakarta', // Default value with West Jakarta
+                  initialValue: locationDetail + 'West Jakarta',
                   decoration: InputDecoration(
                     labelText: 'Location Detail',
                     border: OutlineInputBorder(

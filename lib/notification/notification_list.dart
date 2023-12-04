@@ -29,120 +29,117 @@ class _NotificationListState extends State<NotificationList>
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          leading: Container(
-            width: 40,
-            height: 40,
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Container(
+          width: 40,
+          height: 40,
+          decoration: ShapeDecoration(
+            color: Color(0xFFF5F4F7),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25),
+            ),
+          ),
+          child: Center(
+            child: IconButton(
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: Color(0xFF234F68),
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              iconSize: 20,
+            ),
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.delete, color: Colors.black),
+            onPressed: () {},
+          ),
+        ],
+      ),
+      body: Column(
+        children: [
+          SizedBox(height: 20),
+          Container(
+            height: 70,
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
             decoration: ShapeDecoration(
               color: Color(0xFFF5F4F7),
               shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(100),
+              ),
+            ),
+            child: TabBar(
+              controller: tabController,
+              labelColor: Colors.black,
+              indicator: BoxDecoration(
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(25),
               ),
-            ),
-            child: Center(
-              child: IconButton(
-                icon: Icon(
-                  Icons.arrow_back_ios,
-                  color: Color(0xFF234F68),
+              tabs: [
+                Tab(
+                  text: 'Notification',
                 ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                iconSize: 20,
-              ),
+                Tab(
+                  text: 'Messages',
+                ),
+              ],
             ),
           ),
-          actions: [
-            IconButton(
-              icon: Icon(Icons.delete, color: Colors.black),
-              onPressed: () {},
-            ),
-          ],
-        ),
-        body: Column(
-          children: [
-            SizedBox(height: 20),
-            Container(
-              height: 70,
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-              decoration: ShapeDecoration(
-                color: Color(0xFFF5F4F7),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(100),
-                ),
-              ),
-              child: TabBar(
-                controller: tabController,
-                labelColor: Colors.black,
-                indicator: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                tabs: [
-                  Tab(
-                    text: 'Notification',
+          Expanded(
+            child: TabBarView(controller: tabController, children: [
+              Column(
+                children: [
+                  SizedBox(height: 20),
+                  Container(
+                    height: 50,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                    decoration: ShapeDecoration(
+                      color: Color(0xFFF5F4F7),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                    ),
+                    child: TabBar(
+                      controller: subTabController,
+                      unselectedLabelColor: Colors.black,
+                      labelColor: Colors.white,
+                      indicator: BoxDecoration(
+                        color: Color(0xFF242B5C),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      tabs: [
+                        Tab(
+                          text: 'All',
+                        ),
+                        Tab(
+                          text: 'Reviews',
+                        ),
+                        Tab(text: 'Sold'),
+                        Tab(text: 'House'),
+                      ],
+                    ),
                   ),
-                  Tab(
-                    text: 'Messages',
+                  Expanded(
+                    child: TabBarView(controller: subTabController, children: [
+                      AllContent(),
+                      ReviewsContent(),
+                      AllContent(),
+                      ReviewsContent(),
+                    ]),
                   ),
                 ],
               ),
-            ),
-            Expanded(
-              child: TabBarView(controller: tabController, children: [
-                Column(
-                  children: [
-                    SizedBox(height: 20),
-                    Container(
-                      height: 50,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 15, vertical: 8),
-                      decoration: ShapeDecoration(
-                        color: Color(0xFFF5F4F7),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                      ),
-                      child: TabBar(
-                        controller: subTabController,
-                        unselectedLabelColor: Colors.black,
-                        labelColor: Colors.white,
-                        indicator: BoxDecoration(
-                          color: Color(0xFF242B5C),
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        tabs: [
-                          Tab(
-                            text: 'All',
-                          ),
-                          Tab(
-                            text: 'Reviews',
-                          ),
-                          Tab(text: 'Sold'),
-                          Tab(text: 'House'),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child:
-                          TabBarView(controller: subTabController, children: [
-                        AllContent(),
-                        ReviewsContent(),
-                        AllContent(),
-                        ReviewsContent(),
-                      ]),
-                    ),
-                  ],
-                ),
-                MessagesList(),
-              ]),
-            ),
-          ],
-        ),
+              MessagesList(),
+            ]),
+          ),
+        ],
       ),
     );
   }
